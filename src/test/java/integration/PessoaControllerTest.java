@@ -33,7 +33,7 @@ public class PessoaControllerTest extends ITemplate {
         ResponseEntity<String> response = restTemplate.sendPOST(uri, requestBody);
         ResponseEntityAssert.assertThat(response)
                 .isNotFound()
-                .responseBody(expected);
+                .responseBody(expected, "timestamp");
     }
 
     @Test
@@ -45,7 +45,7 @@ public class PessoaControllerTest extends ITemplate {
         ResponseEntity<String> response = restTemplate.sendPOST(uri, requestBody);
         ResponseEntityAssert.assertThat(response)
                 .isNotFound()
-                .responseBody(expected);
+                .responseBody(expected, "timestamp");
     }
 
     @Test
@@ -57,6 +57,6 @@ public class PessoaControllerTest extends ITemplate {
         ResponseEntity<String> response = restTemplate.sendPOST(uri, requestBody);
         ResponseEntityAssert.assertThat(response)
                 .isBadRequest()
-                .responseBody(expected);
+                .responseBody(expected, "timestamp");
     }
 }

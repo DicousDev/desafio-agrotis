@@ -1,0 +1,12 @@
+{
+  "details": "Erro no payload.",
+  "status": 400,
+  "path": "/v1/propriedades",
+  "timestamp": "2025-05-06T18:52:41.7078739",
+  "erros": [
+    {
+      "field": "nome",
+      "value": "não deve estar em branco"
+    }
+  ]
+}
