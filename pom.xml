@@ -8,11 +8,11 @@
 		<version>3.4.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>br.com.projeto</groupId>
-	<artifactId>template</artifactId>
+	<groupId>br.com.agrotis</groupId>
+	<artifactId>desafio</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>template</name>
-	<description>Demo project for Spring Boot</description>
+	<name>agrotis</name>
+	<description>Desafio Agrotis</description>
 	<url/>
 	<licenses>
 		<license/>

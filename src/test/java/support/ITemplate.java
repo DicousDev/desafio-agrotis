@@ -1,6 +1,6 @@
 package support;
 
-import br.com.projeto.template.TemplateApplication;
+import br.com.agrotis.desafio.DesafioAgrotisApplication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
@@ -25,7 +25,7 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 
 @Testcontainers
 @ActiveProfiles("IT")
-@SpringBootTest(classes = {TemplateApplication.class, BeanConfig.class} , webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = {DesafioAgrotisApplication.class, BeanConfig.class} , webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public abstract class ITemplate {
 
     private static final String SERVER_URL = "http://localhost:%s/%s";

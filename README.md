@@ -1,3 +1,5 @@
-## Template
+## Agrotis - Desafio técnico
 
-O template serve para agilizar tempo de desenvolvimento fornecendo uma arquitetura em camadas, com dependências para documentação swagger e conexão com banco de dados PostgreSQL.
+👷‍♂️🚧 Este desafio ainda está em desenvolvimento.
+
+### Previsão de termino para 6h da manhã do dia 07/05/2025
