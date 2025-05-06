@@ -1,0 +1,24 @@
+{
+  "details": "Erro no payload.",
+  "status": 400,
+  "path": "/v1/pessoas",
+  "timestamp": "2025-05-06T18:40:22.9674183",
+  "erros": [
+    {
+      "field": "observacoes",
+      "value": "tamanho deve ser entre 0 e 255"
+    },
+    {
+      "field": "nome",
+      "value": "não deve estar em branco"
+    },
+    {
+      "field": "propriedadeId",
+      "value": "não deve ser nulo"
+    },
+    {
+      "field": "laboratorioId",
+      "value": "não deve ser nulo"
+    }
+  ]
+}

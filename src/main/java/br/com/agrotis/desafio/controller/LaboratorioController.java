@@ -3,7 +3,6 @@ package br.com.agrotis.desafio.controller;
 import br.com.agrotis.desafio.controlleradvice.ApiResponseError;
 import br.com.agrotis.desafio.dto.in.CadastroLaboratorioDTO;
 import br.com.agrotis.desafio.dto.out.LaboratorioDTO;
-import br.com.agrotis.desafio.dto.out.PessoaDTO;
 import br.com.agrotis.desafio.service.LaboratorioService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;

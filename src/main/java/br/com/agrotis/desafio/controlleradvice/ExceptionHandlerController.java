@@ -1,6 +1,7 @@
 package br.com.agrotis.desafio.controlleradvice;
 
 import br.com.agrotis.desafio.exception.EntidadeInvalidaRuntimeException;
+import br.com.agrotis.desafio.exception.NaoEncontradoRuntimeException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -46,6 +47,11 @@ public class ExceptionHandlerController extends ResponseEntityExceptionHandler {
     @ExceptionHandler(EntidadeInvalidaRuntimeException.class)
     public ResponseEntity<Object> entidadeInvalidaException(EntidadeInvalidaRuntimeException ex, WebRequest request) {
         return criaResponse(ex.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY, request);
+    }
+
+    @ExceptionHandler(NaoEncontradoRuntimeException.class)
+    public ResponseEntity<Object> naoEncontradoException(NaoEncontradoRuntimeException ex, WebRequest request) {
+        return criaResponse(ex.getMessage(), HttpStatus.NOT_FOUND, request);
     }
 
     @ExceptionHandler({NullPointerException.class, IllegalStateException.class})

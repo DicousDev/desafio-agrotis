@@ -1,0 +1,15 @@
+{
+  "id": 1,
+  "nome": "Otávio Verde",
+  "dataInicial": "2025-04-02T08:00:00",
+  "dataFinal": "2025-04-30T17:00:00",
+  "observacoes": "Acompanhamento de replantio experimental.",
+  "propriedade": {
+    "id": 15,
+    "nome": "Fazenda Boa Ventura"
+  },
+  "laboratorio": {
+    "id": 17,
+    "nome": "BioArk Technologies"
+  }
+}

@@ -20,7 +20,7 @@ public class PessoaConverter {
 
     public PessoaDTO toDTO(Pessoa pessoa) {
         PropriedadeDTO propriedade = new PropriedadeDTO(pessoa.getPropriedade().getId(), pessoa.getPropriedade().getNome());
-        LaboratorioDTO laboratorio = new LaboratorioDTO(pessoa.getLaboratorio().getId(), pessoa.getPropriedade().getNome());
+        LaboratorioDTO laboratorio = new LaboratorioDTO(pessoa.getLaboratorio().getId(), pessoa.getLaboratorio().getNome());
         return PessoaDTO.builder()
                 .id(pessoa.getId())
                 .nome(pessoa.getNome())
