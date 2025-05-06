@@ -13,14 +13,14 @@ public class PropriedadeTest {
 
     @ParameterizedTest
     @MethodSource(value = "providerPropriedadeInvalido")
-    public void deveValidarErrosBuild(String erro, Propriedade.PropriedadeBuilder propriedadeBuilder) {
+    protected void deveValidarErrosBuild(String erro, Propriedade.PropriedadeBuilder propriedadeBuilder) {
         Assertions.assertThatThrownBy(() -> propriedadeBuilder.build())
                 .isInstanceOf(EntidadeInvalidaRuntimeException.class)
                 .hasMessage(erro);
     }
 
 
-    public static Stream<Arguments> providerPropriedadeInvalido() {
+    protected static Stream<Arguments> providerPropriedadeInvalido() {
         return Stream.of(
                 Arguments.of("Nome da propriedade é obrigatório.", PropriedadeProvider.padrao().nome(null)),
                 Arguments.of("Nome da propriedade é obrigatório.", PropriedadeProvider.padrao().nome(" ")),

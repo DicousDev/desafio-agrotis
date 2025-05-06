@@ -13,14 +13,14 @@ public class LaboratorioTest {
 
     @ParameterizedTest
     @MethodSource(value = "providerLaboratorioInvalido")
-    public void deveValidarErrosBuild(String erro, Laboratorio.LaboratorioBuilder laboratorioBuilder) {
+    protected void deveValidarErrosBuild(String erro, Laboratorio.LaboratorioBuilder laboratorioBuilder) {
         Assertions.assertThatThrownBy(() -> laboratorioBuilder.build())
                 .isInstanceOf(EntidadeInvalidaRuntimeException.class)
                 .hasMessage(erro);
     }
 
 
-    public static Stream<Arguments> providerLaboratorioInvalido() {
+    protected static Stream<Arguments> providerLaboratorioInvalido() {
         return Stream.of(
             Arguments.of("Nome do laboratório é obrigatório.", LaboratorioProvider.padrao().nome(null)),
             Arguments.of("Nome do laboratório é obrigatório.", LaboratorioProvider.padrao().nome(" ")),

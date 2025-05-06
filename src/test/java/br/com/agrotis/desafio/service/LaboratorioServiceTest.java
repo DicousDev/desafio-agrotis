@@ -11,7 +11,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.springframework.util.Assert;
 import support.provider.LaboratorioProvider;
 
 import java.util.Optional;
@@ -30,7 +29,7 @@ public class LaboratorioServiceTest {
     }
 
     @Test
-    public void deveEncontrarLaboratorio() {
+    protected void deveEncontrarLaboratorio() {
         var laboratorio = Optional.of(LaboratorioProvider.padrao().build());
         Mockito.when(repository.findById(18L)).thenReturn(laboratorio);
         var laboratorioCadastrado = service.pesquisarPeloId(18L);
@@ -39,7 +38,7 @@ public class LaboratorioServiceTest {
     }
 
     @Test
-    public void naoDeveEncontrarLaboratorio() {
+    protected void naoDeveEncontrarLaboratorio() {
         Optional<Laboratorio> laboratorio = Optional.empty();
         Mockito.when(repository.findById(18L)).thenReturn(laboratorio);
         var laboratorioCadastrado = service.pesquisarPeloId(18L);
@@ -47,7 +46,7 @@ public class LaboratorioServiceTest {
     }
 
     @Test
-    public void deveCadastrarLaboratorio() {
+    protected void deveCadastrarLaboratorio() {
         Laboratorio laboratorioMock = LaboratorioProvider.padrao().nome("Dexter").build();
         CadastroLaboratorioDTO laboratorio = CadastroLaboratorioDTO.builder()
                 .nome("Dexter")

@@ -15,14 +15,14 @@ public class PessoaTest {
 
     @ParameterizedTest
     @MethodSource(value = "providerPessoaInvalido")
-    public void deveValidarErrosBuild(String erro, Pessoa.PessoaBuilder pessoaBuilder) {
+    protected void deveValidarErrosBuild(String erro, Pessoa.PessoaBuilder pessoaBuilder) {
         Assertions.assertThatThrownBy(() -> pessoaBuilder.build())
                 .isInstanceOf(EntidadeInvalidaRuntimeException.class)
                 .hasMessage(erro);
     }
 
 
-    public static Stream<Arguments> providerPessoaInvalido() {
+    protected static Stream<Arguments> providerPessoaInvalido() {
         return Stream.of(
                 Arguments.of("Nome da pessoa é obrigatório.", PessoaProvider.padrao().nome(null)),
                 Arguments.of("Nome da pessoa é obrigatório.", PessoaProvider.padrao().nome(" ")),

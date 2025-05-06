@@ -17,7 +17,7 @@ public class PessoaConverterTest {
 
 
     @Test
-    public void toModel() {
+    protected void toModel() {
         CadastroPessoaDTO pessoa = new CadastroPessoaDTO("Dexter",
                 LocalDateTime.MIN,
                 LocalDateTime.MAX,
@@ -36,7 +36,7 @@ public class PessoaConverterTest {
     }
 
     @Test
-    public void toDTO() {
+    protected void toDTO() {
         Pessoa pessoa = PessoaProvider.padrao().build();
         PessoaDTO resultado = converter.toDTO(pessoa);
         Assertions.assertThat(resultado).hasNoNullFieldsOrProperties();

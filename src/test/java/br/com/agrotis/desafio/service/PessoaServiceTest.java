@@ -40,7 +40,7 @@ public class PessoaServiceTest {
     }
 
     @Test
-    public void deveFalharNaTentativaDeCadastrarPessoaENaoEncontraPropriedade() {
+    protected void deveFalharNaTentativaDeCadastrarPessoaENaoEncontraPropriedade() {
         CadastroPessoaDTO pessoa = new CadastroPessoaDTO("Dexter",
                 LocalDateTime.MIN,
                 LocalDateTime.MAX,
@@ -57,7 +57,7 @@ public class PessoaServiceTest {
     }
 
     @Test
-    public void deveFalharNaTentativaDeCadastrarPessoaENaoEncontraLaboratorio() {
+    protected void deveFalharNaTentativaDeCadastrarPessoaENaoEncontraLaboratorio() {
         CadastroPessoaDTO pessoa = new CadastroPessoaDTO("Dexter",
                 LocalDateTime.MIN,
                 LocalDateTime.MAX,
@@ -75,7 +75,7 @@ public class PessoaServiceTest {
     }
 
     @Test
-    public void deveCadastrarPessoa() {
+    protected void deveCadastrarPessoa() {
         CadastroPessoaDTO pessoa = new CadastroPessoaDTO("Dexter",
                 LocalDateTime.MIN,
                 LocalDateTime.MAX,

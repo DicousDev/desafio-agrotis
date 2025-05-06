@@ -9,13 +9,13 @@ public class StringUtilsTest {
 
     @ParameterizedTest
     @CsvSource({"a 1 0,a10", " a ,a", ","})
-    public void retirarTodosEspacosEmBranco(String actual, String expected) {
+    protected void retirarTodosEspacosEmBranco(String actual, String expected) {
         Assertions.assertThat(StringUtils.retirarTodosEspacosEmBranco(actual)).isEqualTo(expected);
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"", " "})
-    public void isBlankTrue(String actual) {
+    protected void isBlankTrue(String actual) {
         Assertions.assertThat(StringUtils.isBlank(actual)).isTrue();
     }
 }

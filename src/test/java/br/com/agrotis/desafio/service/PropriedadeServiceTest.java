@@ -31,7 +31,7 @@ public class PropriedadeServiceTest {
     }
 
     @Test
-    public void deveEncontrarPropriedade() {
+    protected void deveEncontrarPropriedade() {
         var propriedade = Optional.of(PropriedadeProvider.padrao().build());
         Mockito.when(repository.findById(18L)).thenReturn(propriedade);
         var propriedadeCadastrada = service.pesquisarPeloId(18L);
@@ -40,7 +40,7 @@ public class PropriedadeServiceTest {
     }
 
     @Test
-    public void naoDeveEncontrarPropriedade() {
+    protected void naoDeveEncontrarPropriedade() {
         Optional<Propriedade> propriedade = Optional.empty();
         Mockito.when(repository.findById(18L)).thenReturn(propriedade);
         var propriedadeCadastrada = service.pesquisarPeloId(18L);
@@ -48,7 +48,7 @@ public class PropriedadeServiceTest {
     }
 
     @Test
-    public void deveCadastrarPropriedade() {
+    protected void deveCadastrarPropriedade() {
         Propriedade propriedadeMock = PropriedadeProvider.padrao().nome("Dexter").build();
         CadastroPropriedadeDTO propriedade = CadastroPropriedadeDTO.builder()
                 .nome("Dexter")
