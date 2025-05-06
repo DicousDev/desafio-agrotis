@@ -13,14 +13,6 @@ public class StringUtils {
         return s.replaceAll("\\s+", "");
     }
 
-    public static Boolean isNumericOnly(String s) {
-        if(Objects.isNull(s)) {
-            return false;
-        }
-
-        return s.matches("\\d+");
-    }
-
     public static Boolean isBlank(String s) {
         return s != null && s.isBlank();
     }
