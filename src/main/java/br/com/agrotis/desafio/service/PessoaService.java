@@ -10,6 +10,7 @@ import br.com.agrotis.desafio.model.Propriedade;
 import br.com.agrotis.desafio.repository.PessoaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -20,6 +21,7 @@ public class PessoaService {
     private final PessoaRepository repository;
     private final PessoaConverter converter;
 
+    @Transactional
     public PessoaDTO cadastrar(CadastroPessoaDTO pessoa) {
 
         Propriedade propriedade = propriedadeService.pesquisarPeloId(pessoa.getPropriedadeId())
