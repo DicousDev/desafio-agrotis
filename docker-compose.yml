@@ -1,22 +1,22 @@
 version: '3.8'
 
 services:
-#  api:
-#    container_name: template-api
-#    image: joaodicous/desafio-template:latest
-#    ports:
-#      - 8080:8080
-#    environment:
-#      DB_URL: jdbc:postgresql://db:5432/template
-#      DB_USERNAME: admin
-#      DB_PASSWORD: admin
-#    depends_on:
-#      - db
+  api:
+    container_name: agrotis-api
+    image: joaodicous/desafio-agrotis:latest
+    ports:
+      - 8080:8080
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/agrotis
+      DB_USERNAME: admin
+      DB_PASSWORD: admin
+    depends_on:
+      - db
   db:
-    container_name: 'agrotis_db'
+    container_name: agrotis_db
     image: postgres:17-alpine
     ports:
-      - "5432:5432"
+      - 5432:5432
     volumes:
       - .docker/postgres:/var/lib/postgresql
     environment:
