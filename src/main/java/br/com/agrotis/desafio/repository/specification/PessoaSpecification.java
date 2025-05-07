@@ -16,11 +16,11 @@ public class PessoaSpecification {
             root.fetch("propriedade", JoinType.LEFT);
             root.fetch("laboratorio", JoinType.LEFT);
 
-            if(Objects.nonNull(filter.getNome()) && !filter.getNome().isBlank()) {
+            if (Objects.nonNull(filter.getNome()) && !filter.getNome().isBlank()) {
                 predicate = builder.and(predicate, builder.like(builder.lower(root.get("nome")), "%" + filter.getNome().toLowerCase() + "%"));
             }
 
-            if(Objects.nonNull(filter.getObservacoes()) && !filter.getObservacoes().isBlank()) {
+            if (Objects.nonNull(filter.getObservacoes()) && !filter.getObservacoes().isBlank()) {
                 predicate = builder.and(predicate, builder.like(builder.lower(root.get("observacoes")), "%" + filter.getObservacoes().toLowerCase() + "%"));
             }
 
@@ -44,11 +44,11 @@ public class PessoaSpecification {
                 predicate = builder.and(predicate, dataFinalMaximaPredicate);
             }
 
-            if(Objects.nonNull(filter.getNomePropriedades()) && !filter.getNomePropriedades().isEmpty()) {
+            if (Objects.nonNull(filter.getNomePropriedades()) && !filter.getNomePropriedades().isEmpty()) {
                 predicate = builder.and(predicate, root.get("propriedade").get("nome").in(filter.getNomePropriedades()));
             }
 
-            if(Objects.nonNull(filter.getNomeLaboratorios()) && !filter.getNomeLaboratorios().isEmpty()) {
+            if (Objects.nonNull(filter.getNomeLaboratorios()) && !filter.getNomeLaboratorios().isEmpty()) {
                 predicate = builder.and(predicate, root.get("laboratorio").get("nome").in(filter.getNomeLaboratorios()));
             }
 

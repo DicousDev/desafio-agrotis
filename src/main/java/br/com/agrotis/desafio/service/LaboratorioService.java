@@ -35,10 +35,10 @@ public class LaboratorioService {
         Page<Laboratorio> pageLaboratorio = repository.findAll(LaboratorioSpecification.filters(nome), pageable);
 
         List<LaboratorioDTO> laboratorioDto = pageLaboratorio.get().map(laboratorio -> LaboratorioDTO.builder()
-                .id(laboratorio.getId())
-                .nome(laboratorio.getNome())
-                .build())
-            .toList();
+                        .id(laboratorio.getId())
+                        .nome(laboratorio.getNome())
+                        .build())
+                .toList();
 
         return new PageImpl<>(laboratorioDto,
                 pageLaboratorio.getPageable(),

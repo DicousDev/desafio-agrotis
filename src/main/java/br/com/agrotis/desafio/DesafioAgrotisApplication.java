@@ -7,14 +7,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @OpenAPIDefinition(
-		info = @Info(title = "Agrotis API",
-				version = "1.0",
-				description = "API para gerenciamento de propriedades, laboratórios e pessoas")
+        info = @Info(title = "Agrotis API",
+                version = "1.0",
+                description = "API para gerenciamento de propriedades, laboratórios e pessoas")
 )
 public class DesafioAgrotisApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(DesafioAgrotisApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(DesafioAgrotisApplication.class, args);
+    }
 
 }

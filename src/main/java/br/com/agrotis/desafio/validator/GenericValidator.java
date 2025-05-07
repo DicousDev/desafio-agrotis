@@ -9,7 +9,7 @@ import java.util.function.BooleanSupplier;
 public class GenericValidator {
 
     public static void validation(String mensagemErro, BooleanSupplier validations) {
-        if(validations.getAsBoolean()) {
+        if (validations.getAsBoolean()) {
             throw new EntidadeInvalidaRuntimeException(mensagemErro);
         }
     }

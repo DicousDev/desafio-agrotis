@@ -30,7 +30,7 @@ public class ExceptionHandlerController extends ResponseEntityExceptionHandler {
 
         ApiResponseError response = criaApiResponse(DETAILS_400_BAD_REQUEST, status.value(), request);
         Map<String, String> fieldNameValue = new HashMap<>();
-        for(FieldError field : ex.getBindingResult().getFieldErrors()) {
+        for (FieldError field : ex.getBindingResult().getFieldErrors()) {
             fieldNameValue.put(field.getField(), field.getDefaultMessage());
         }
 

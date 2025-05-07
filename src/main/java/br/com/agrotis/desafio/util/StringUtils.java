@@ -6,7 +6,7 @@ public class StringUtils {
 
     public static String retirarTodosEspacosEmBranco(String s) {
 
-        if(Objects.isNull(s)) {
+        if (Objects.isNull(s)) {
             return null;
         }
 
