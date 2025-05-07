@@ -101,5 +101,29 @@ public class LaboratorioControllerTest extends ITemplate  {
                 .responseBody(expected);
     }
 
+    @Test
+    @Sql({"classpath:IT/clean.sql", "classpath:IT/insert-laboratorios.sql"})
+    void deveAtualizarDadosDoLaboratorio() {
+        String requestBody = readJSON("IT/atualiza-laboratorio-request.json");
+        String expected = readJSON("IT/atualiza-laboratorio-request-expected.json");
+        URI uri = toURI(BASE_URL + "/1");
+        ResponseEntity<String> response = restTemplate.sendPATCH(uri, requestBody);
+        ResponseEntityAssert.assertThat(response)
+                .isOk()
+                .responseBody(expected);
+    }
+
+    @Test
+    @Sql({"classpath:IT/clean.sql"})
+    void deveFalharQuandoTentarAtualizarDadosDoLaboratorioENaoEncontrar() {
+        String requestBody = readJSON("IT/atualiza-laboratorio-request.json");
+        String expected = readJSON("IT/atualiza-laboratorio-not-found-expected.json");
+        URI uri = toURI(BASE_URL + "/1");
+        ResponseEntity<String> response = restTemplate.sendPATCH(uri, requestBody);
+        ResponseEntityAssert.assertThat(response)
+                .isNotFound()
+                .responseBody(expected, "timestamp");
+    }
+
 
 }

@@ -19,7 +19,6 @@ public class LaboratorioTest {
                 .hasMessage(erro);
     }
 
-
     protected static Stream<Arguments> providerLaboratorioInvalido() {
         return Stream.of(
             Arguments.of("Nome do laboratório é obrigatório.", LaboratorioProvider.padrao().nome(null)),
@@ -27,4 +26,23 @@ public class LaboratorioTest {
             Arguments.of("O nome do laboratório excedeu o limite de caracteres.", LaboratorioProvider.padrao().nome("a".repeat(256)))
         );
     }
+
+    @ParameterizedTest
+    @MethodSource("providerAlteracaoDadosLaboratorioInvalido")
+    protected void deveValidarAtualizacaoDosDados(String erro, String novoNome) {
+        Laboratorio laboratorio = LaboratorioProvider.padrao().build();
+        Assertions.assertThatThrownBy(() -> laboratorio.updateNome(novoNome))
+                .isInstanceOf(EntidadeInvalidaRuntimeException.class)
+                .hasMessage(erro);
+    }
+
+    protected static Stream<Arguments> providerAlteracaoDadosLaboratorioInvalido() {
+        return Stream.of(
+                Arguments.of("Nome do laboratório é obrigatório.", null),
+                Arguments.of("Nome do laboratório é obrigatório.", " "),
+                Arguments.of("O nome do laboratório excedeu o limite de caracteres.", "a".repeat(256))
+        );
+    }
+
+
 }

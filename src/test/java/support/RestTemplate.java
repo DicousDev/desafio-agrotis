@@ -24,6 +24,10 @@ public class RestTemplate {
         return sendJSON(uri, request, String.class, HttpMethod.POST);
     }
 
+    public ResponseEntity<String> sendPATCH(URI uri, Object request) {
+        return sendJSON(uri, request, String.class, HttpMethod.PATCH);
+    }
+
     private <T> ResponseEntity<T> sendJSON(URI uri,
                                            Object request,
                                            Class<T> clazz,

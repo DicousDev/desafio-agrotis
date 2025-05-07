@@ -23,7 +23,7 @@ import java.util.Set;
 @ToString
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-@Builder
+@Builder(toBuilder = true)
 @EqualsAndHashCode
 @Entity
 @Table(name = "laboratorio")
@@ -36,6 +36,10 @@ public class Laboratorio {
 
     @OneToMany(mappedBy = "laboratorio")
     private List<Pessoa> pessoas;
+
+    public Laboratorio updateNome(String nome) {
+        return toBuilder().nome(nome).build();
+    }
 
     public static class LaboratorioBuilder {
 

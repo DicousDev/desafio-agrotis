@@ -1,5 +1,6 @@
 package br.com.agrotis.desafio.service;
 
+import br.com.agrotis.desafio.dto.in.AtualizarLaboratorioDTO;
 import br.com.agrotis.desafio.dto.in.CadastroLaboratorioDTO;
 import br.com.agrotis.desafio.dto.out.LaboratorioComPessoasDTO;
 import br.com.agrotis.desafio.dto.out.LaboratorioDTO;
@@ -73,5 +74,16 @@ public class LaboratorioService {
                 .nome(laboratorio.getNome())
                 .build());
         return new LaboratorioDTO(laboratorioSaved.getId(), laboratorioSaved.getNome());
+    }
+
+    @Transactional
+    public LaboratorioDTO atualizar(Long idLaboratorio, AtualizarLaboratorioDTO laboratorio) {
+
+        Laboratorio laboratorioParaAtualizar = pesquisarPeloId(idLaboratorio)
+                .orElseThrow(() -> new NaoEncontradoRuntimeException("Laboratório [%s] não encontrado.".formatted(idLaboratorio)));
+
+        laboratorioParaAtualizar = laboratorioParaAtualizar.updateNome(laboratorio.getNome());
+        repository.save(laboratorioParaAtualizar);
+        return new LaboratorioDTO(laboratorioParaAtualizar.getId(), laboratorioParaAtualizar.getNome());
     }
 }
