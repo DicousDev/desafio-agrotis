@@ -22,8 +22,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Collection;
-
 @RestController
 @RequestMapping("/v1/pessoas")
 @RequiredArgsConstructor
@@ -70,7 +68,7 @@ public class PessoaController {
             }
     )
     @GetMapping
-    public Page<PessoaDTO> pesquisarPessoas(@ParameterObject @Valid PessoaFilter filter) {
+    public Page<PessoaDTO> pesquisarPessoas(@ParameterObject PessoaFilter filter) {
         return service.pesquisarPessoas(filter);
     }
 
