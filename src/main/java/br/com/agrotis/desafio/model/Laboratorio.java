@@ -33,6 +33,7 @@ public class Laboratorio {
     private String nome;
 
     @OneToMany(mappedBy = "laboratorio")
+    @ToString.Exclude
     private Set<Pessoa> pessoas;
 
     public static class LaboratorioBuilder {

@@ -16,6 +16,10 @@ public class RestTemplate {
 
     private final TestRestTemplate restTemplate;
 
+    public ResponseEntity<String> sendGET(URI uri) {
+        return sendJSON(uri, null, String.class, HttpMethod.GET);
+    }
+
     public ResponseEntity<String> sendPOST(URI uri, Object request) {
         return sendJSON(uri, request, String.class, HttpMethod.POST);
     }

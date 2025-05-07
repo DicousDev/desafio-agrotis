@@ -47,4 +47,18 @@ public class LaboratorioControllerTest extends ITemplate  {
                 .isBadRequest()
                 .responseBody(expected, "timestamp");
     }
+
+    @Test
+    @Sql({"classpath:IT/clean.sql",
+            "classpath:IT/insert-laboratorios.sql",
+            "classpath:IT/insert-propriedades.sql",
+            "classpath:IT/insert-pessoas.sql"})
+    void devePesquisarLaboratorioPeloId() {
+        String expected = readJSON("IT/pesquisa-laboratorio-id-expected.json");
+        URI uri = toURI(BASE_URL + "/1");
+        ResponseEntity<String> response = restTemplate.sendGET(uri);
+        ResponseEntityAssert.assertThat(response)
+                .isOk()
+                .responseBody(expected);
+    }
 }

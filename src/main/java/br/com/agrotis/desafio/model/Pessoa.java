@@ -2,6 +2,7 @@ package br.com.agrotis.desafio.model;
 
 import br.com.agrotis.desafio.validator.GenericValidator;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;

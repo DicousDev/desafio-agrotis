@@ -21,6 +21,11 @@ public class ResponseEntityAssert extends AbstractCustomAssert<ResponseEntityAss
         return new ResponseEntityAssert(actual);
     }
 
+    public ResponseEntityAssert isOk() {
+        status(HttpStatus.OK);
+        return this;
+    }
+
     public ResponseEntityAssert isCreated() {
         status(HttpStatus.CREATED);
         return this;
