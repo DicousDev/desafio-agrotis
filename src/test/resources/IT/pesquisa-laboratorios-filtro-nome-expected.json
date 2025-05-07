@@ -1,0 +1,69 @@
+{
+  "content": [
+    {
+      "id": 2,
+      "nome": "BioGenix"
+    },
+    {
+      "id": 6,
+      "nome": "GenomaX"
+    },
+    {
+      "id": 15,
+      "nome": "InovaGene Lab"
+    },
+    {
+      "id": 20,
+      "nome": "DeepMind Genetics"
+    },
+    {
+      "id": 28,
+      "nome": "Zenith Genetic Labs"
+    },
+    {
+      "id": 30,
+      "nome": "GeneWorks Lab"
+    },
+    {
+      "id": 34,
+      "nome": "OmniGene Research"
+    },
+    {
+      "id": 40,
+      "nome": "LumenGene Institute"
+    },
+    {
+      "id": 46,
+      "nome": "Stellar Biogenics"
+    },
+    {
+      "id": 48,
+      "nome": "MiraGene Technologies"
+    }
+  ],
+  "pageable": {
+    "pageNumber": 0,
+    "pageSize": 30,
+    "sort": {
+      "empty": true,
+      "unsorted": true,
+      "sorted": false
+    },
+    "offset": 0,
+    "unpaged": false,
+    "paged": true
+  },
+  "last": true,
+  "totalElements": 10,
+  "totalPages": 1,
+  "size": 30,
+  "number": 0,
+  "sort": {
+    "empty": true,
+    "unsorted": true,
+    "sorted": false
+  },
+  "first": true,
+  "numberOfElements": 10,
+  "empty": false
+}

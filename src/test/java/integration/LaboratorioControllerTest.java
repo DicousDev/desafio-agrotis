@@ -61,4 +61,45 @@ public class LaboratorioControllerTest extends ITemplate  {
                 .isOk()
                 .responseBody(expected);
     }
+
+    @Test
+    @Sql({"classpath:IT/clean.sql"})
+    void deveFalharAoPesquisarLaboratorioPeloId() {
+        String expected = readJSON("IT/pesquisa-laboratorio-id-nao-encontrado-expected.json");
+        URI uri = toURI(BASE_URL + "/1");
+        ResponseEntity<String> response = restTemplate.sendGET(uri);
+        ResponseEntityAssert.assertThat(response)
+                .isNotFound()
+                .responseBody(expected, "timestamp");
+    }
+
+    @Test
+    @Sql({"classpath:IT/clean.sql",
+            "classpath:IT/insert-laboratorios.sql",
+            "classpath:IT/insert-propriedades.sql",
+            "classpath:IT/insert-pessoas.sql"})
+    void devePesquisarListaDeLaboratoriosPorPagina() {
+        String expected = readJSON("IT/pesquisa-laboratorios-expected.json");
+        URI uri = toURI(BASE_URL + "?size=5");
+        ResponseEntity<String> response = restTemplate.sendGET(uri);
+        ResponseEntityAssert.assertThat(response)
+                .isOk()
+                .responseBody(expected);
+    }
+
+    @Test
+    @Sql({"classpath:IT/clean.sql",
+            "classpath:IT/insert-laboratorios.sql",
+            "classpath:IT/insert-propriedades.sql",
+            "classpath:IT/insert-pessoas.sql"})
+    void devePesquisarListaDeLaboratoriosPorPaginaComFiltroPeloNome() {
+        String expected = readJSON("IT/pesquisa-laboratorios-filtro-nome-expected.json");
+        URI uri = toURI(BASE_URL + "?nome=gen");
+        ResponseEntity<String> response = restTemplate.sendGET(uri);
+        ResponseEntityAssert.assertThat(response)
+                .isOk()
+                .responseBody(expected);
+    }
+
+
 }

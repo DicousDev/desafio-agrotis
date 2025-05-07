@@ -1,1 +1,13 @@
-{}
+{
+  "id": 1,
+  "nome": "LabTech Alpha",
+  "pessoas": [
+    {
+      "id": 4,
+      "nome": "Theo Amaral",
+      "dataInicial": "2025-01-05T07:30:00",
+      "dataFinal": "2025-01-25T17:30:00",
+      "observacoes": "Teste de resistência do feijão da estação."
+    }
+  ]
+}

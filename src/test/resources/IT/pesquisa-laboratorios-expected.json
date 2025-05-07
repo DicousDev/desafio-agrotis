@@ -1,0 +1,49 @@
+{
+  "content": [
+    {
+      "id": 1,
+      "nome": "LabTech Alpha"
+    },
+    {
+      "id": 2,
+      "nome": "BioGenix"
+    },
+    {
+      "id": 3,
+      "nome": "NanoCore Labs"
+    },
+    {
+      "id": 4,
+      "nome": "Quantum BioLab"
+    },
+    {
+      "id": 5,
+      "nome": "Helix Research Center"
+    }
+  ],
+  "pageable": {
+    "pageNumber": 0,
+    "pageSize": 5,
+    "sort": {
+      "empty": true,
+      "sorted": false,
+      "unsorted": true
+    },
+    "offset": 0,
+    "paged": true,
+    "unpaged": false
+  },
+  "last": false,
+  "totalElements": 50,
+  "totalPages": 10,
+  "size": 5,
+  "number": 0,
+  "sort": {
+    "empty": true,
+    "sorted": false,
+    "unsorted": true
+  },
+  "numberOfElements": 5,
+  "first": true,
+  "empty": false
+}

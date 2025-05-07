@@ -30,7 +30,35 @@ public class LaboratorioController {
 
     private final LaboratorioService service;
 
-    public Page<LaboratorioDTO> pesquisar(@RequestParam("nome") String nome,
+    @Operation(summary = "Pesquisa laboratórios por página",
+            description = "Pesquisa laboratórios por página",
+            responses = {
+                    @ApiResponse(
+                            description = "Laboratórios pesquisados com sucesso.",
+                            responseCode = "200",
+                            useReturnTypeSchema = true,
+                            content = {
+                                    @Content(
+                                            schema = @Schema(implementation = LaboratorioComPessoasDTO.class),
+                                            mediaType = MediaType.APPLICATION_JSON_VALUE
+                                    )
+                            }
+                    ),
+                    @ApiResponse(
+                            description = "Erro inesperado do servidor.",
+                            responseCode = "500",
+                            useReturnTypeSchema = true,
+                            content = {
+                                    @Content(
+                                            schema = @Schema(implementation = ApiResponseError.class),
+                                            mediaType = MediaType.APPLICATION_JSON_VALUE
+                                    )
+                            }
+                    )
+            }
+    )
+    @GetMapping
+    public Page<LaboratorioDTO> pesquisar(@RequestParam(value = "nome", required = false) String nome,
                                           @RequestParam(value = "page", defaultValue = "0") int page,
                                           @RequestParam(value = "size", defaultValue = "30") int size) {
         return service.pesquisarPorPagina(nome, page, size);

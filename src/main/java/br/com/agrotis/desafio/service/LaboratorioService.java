@@ -8,6 +8,7 @@ import br.com.agrotis.desafio.exception.NaoEncontradoRuntimeException;
 import br.com.agrotis.desafio.model.Laboratorio;
 import br.com.agrotis.desafio.model.Pessoa;
 import br.com.agrotis.desafio.repository.LaboratorioRepository;
+import br.com.agrotis.desafio.repository.specification.LaboratorioSpecification;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -30,7 +31,7 @@ public class LaboratorioService {
 
     public Page<LaboratorioDTO> pesquisarPorPagina(String nome, int page, int size) {
         Pageable pageable = PageRequest.of(page, size);
-        Page<Laboratorio> pageLaboratorio = repository.findAll(nome, pageable);
+        Page<Laboratorio> pageLaboratorio = repository.findAll(LaboratorioSpecification.filters(nome), pageable);
 
         List<LaboratorioDTO> laboratorioDto = pageLaboratorio.get().map(laboratorio -> LaboratorioDTO.builder()
                 .id(laboratorio.getId())
@@ -48,22 +49,21 @@ public class LaboratorioService {
     }
 
     public LaboratorioComPessoasDTO pesquisarPeloIdFetchPessoas(Long id) {
-        Laboratorio laboratorio = repository.findById(id).orElseThrow(() -> new NaoEncontradoRuntimeException("Laboratório [%s] não encontrado.".formatted(id)));
+        Laboratorio laboratorio = repository.findByIdFetchPessoas(id)
+                .orElseThrow(() -> new NaoEncontradoRuntimeException("Laboratório [%s] não encontrado.".formatted(id)));
 
-//        Collection<Pessoa> pessoasDoLaboratorio = Objects.isNull(laboratorio.getPessoas()) ? Collections.emptyList() : laboratorio.getPessoas();
-        var x = laboratorio.getPessoas().stream().map(pessoa -> PessoaLaboratorioDTO.builder()
-                        .id(pessoa.getId())
-                        .nome(pessoa.getNome())
-                        .dataInicial(pessoa.getDataInicial())
-                        .dataFinal(pessoa.getDataFinal())
-                        .observacoes(pessoa.getObservacoes())
-                        .build())
-                .toList();
-
+        Collection<Pessoa> pessoasDoLaboratorio = Objects.isNull(laboratorio.getPessoas()) ? Collections.emptyList() : laboratorio.getPessoas();
         return LaboratorioComPessoasDTO.builder()
                 .id(laboratorio.getId())
                 .nome(laboratorio.getNome())
-                .pessoas(x)
+                .pessoas(pessoasDoLaboratorio.stream().map(pessoa -> PessoaLaboratorioDTO.builder()
+                                .id(pessoa.getId())
+                                .nome(pessoa.getNome())
+                                .dataInicial(pessoa.getDataInicial())
+                                .dataFinal(pessoa.getDataFinal())
+                                .observacoes(pessoa.getObservacoes())
+                                .build())
+                        .toList())
                 .build();
     }
 

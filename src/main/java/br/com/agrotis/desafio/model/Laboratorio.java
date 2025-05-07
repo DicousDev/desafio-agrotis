@@ -14,7 +14,9 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.apache.commons.lang3.builder.HashCodeExclude;
 
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -33,8 +35,7 @@ public class Laboratorio {
     private String nome;
 
     @OneToMany(mappedBy = "laboratorio")
-    @ToString.Exclude
-    private Set<Pessoa> pessoas;
+    private List<Pessoa> pessoas;
 
     public static class LaboratorioBuilder {
 

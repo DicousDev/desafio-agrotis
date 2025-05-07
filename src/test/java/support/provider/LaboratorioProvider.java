@@ -10,6 +10,6 @@ public class LaboratorioProvider {
         return Laboratorio.builder()
                 .id(1L)
                 .nome("Laboratório Dexter")
-                .pessoas(Collections.emptySet());
+                .pessoas(Collections.emptyList());
     }
 }
