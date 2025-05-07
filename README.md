@@ -1,5 +1,7 @@
 # Agrotis - Desafio técnico
 
+Desenvolvimento iniciado na madrugada de 06/05/2025 próximo das 2h da manhã e finalizado 07/05/2025 por volta das 2h!
+
 ## Requisitos
 
 - Java 17
