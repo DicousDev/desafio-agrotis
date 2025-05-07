@@ -59,4 +59,18 @@ public class PessoaControllerTest extends ITemplate {
                 .isBadRequest()
                 .responseBody(expected, "timestamp");
     }
+
+
+    @Test
+    @Sql({"classpath:IT/clean.sql", "classpath:IT/insert-laboratorios.sql",
+            "classpath:IT/insert-propriedades.sql",
+            "classpath:IT/insert-pessoas.sql"})
+    void deveConsultarPessoas() {
+        String expected = readJSON("IT/consulta-pessoas-expected.json");
+        URI uri = toURI(BASE_URL);
+        ResponseEntity<String> response = restTemplate.sendGET(uri);
+        ResponseEntityAssert.assertThat(response)
+                .isOk()
+                .responseBody(expected);
+    }
 }
