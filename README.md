@@ -34,7 +34,7 @@ O projeto segue boas práticas de clean code, single responsability principle (S
 - clona o repositório
 
 ```shell
-git clone git@github.com:DicousDev/desafio-wefit.git
+git clone git@github.com:DicousDev/desafio-agrotis.git
 ```
 
 - Certifique-se que seu Docker esteja aberto
